@@ -6,7 +6,7 @@ public class RetailPrice {
     //Atributos
     private static HashMap<String, Double> precio = new HashMap<String, Double>();
     
-    //Metodo
+    //Método
     public static void init_prices() {
         precio.put("cheese", 0.25);
         precio.put("sauce", 0.50);
@@ -19,5 +19,9 @@ public class RetailPrice {
         precio.entrySet().stream().forEach(extra -> {
            System.out.println("\t"+ extra);
         });
+    }
+
+    public static Double getRetailPrice(String nombre){
+        return precio.get(nombre);
     }
 }

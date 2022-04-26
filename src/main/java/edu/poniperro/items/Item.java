@@ -36,12 +36,15 @@ public class Item implements Product {
 
     @Override
     public Boolean isRegular() {
-        return null;
+        return extra() == null;
     }
 
     //@Override con el toString siempre tienen que ir unido
     @Override
     public String toString(){
-        return name() + "...." + price().toString() + "$";
+
+        return isRegular()
+                ? name() + "...." + price().toString() + "$"
+                : name() + " w/ " + extra() + "...." + price().toString() + "$ + " + RetailPrice.getRetailPrice(extra()).toString() + "$";
     }
 }
